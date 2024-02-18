@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\User;
 use Illuminate\Contracts\View\View;
+use Livewire\Attributes\Url;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -11,9 +12,8 @@ class SearchUser extends Component
 {
     use WithPagination;
 
+    #[Url(as: 'q')]
     public string $search = '';
-
-    protected array $queryString = ['search'];
 
     public function updatedSearch(): void
     {
