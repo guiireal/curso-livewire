@@ -8,8 +8,8 @@ use Livewire\Form;
 class CreateForm extends Form
 {
     #[Rule('required')]
-    public string $title;
+    public string $title = '';
 
     #[Rule(['required', 'min:5'])]
-    public string $content;
+    public string $content = '';
 }

@@ -46,10 +46,13 @@ class Edit extends Component
             'title' => $this->title,
             'slug' => Str::slug($this->title),
             'content' => $this->content,
-            'photo' => $this->photo ? $this->photo->store('photos', 'public') : $this->post->photo,
+            'photo' => $this->photo ? $this->photo->store('photos', 'public') : $this->post->getOriginal('photo'),
         ]);
 
-        session()->flash('success', 'Post atualizado com sucesso!');
+        $this->js(<<<js
+            swal.fire('Post atualizado com sucesso!', '', 'success');
+        js
+        );
     }
 
     public function render(): View
