@@ -13,6 +13,8 @@ class SearchUser extends Component
 
     public string $search = '';
 
+    protected array $queryString = ['search'];
+
     public function updatedSearch(): void
     {
         $this->resetPage();
